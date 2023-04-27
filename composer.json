@@ -1,0 +1,19 @@
+{
+  "name": "thiago/routes-phpoo",
+  "autoload": {
+    "psr-4": {
+      "app\\": "app/"
+    },
+    "files": []
+  },
+  "authors": [
+    {
+      "name": "Thiago Rodrigues",
+      "email": "hey@thiagorodrigues.dev"
+    }
+  ],
+  "require": {
+    "league/plates": "^3.5",
+    "symfony/var-dumper": "^6.2"
+  }
+}
