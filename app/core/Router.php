@@ -12,8 +12,6 @@ class Router
 
             $controller = new Controller;
             $controller->execute($router);
-
-            dd($router);
         } catch (\Exception $e) {
             dd($e->getMessage());
         }

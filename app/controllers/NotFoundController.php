@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class NotFoundController
+class NotFoundController extends Controller
 {
     public function index()
     {

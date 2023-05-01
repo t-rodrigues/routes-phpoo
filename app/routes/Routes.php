@@ -13,7 +13,9 @@ class Routes
                 '/users/[0-9]+' => 'UserController@show',
                 '/users/[0-9]+/edit' => 'UserController@edit',
             ],
-            'post' => [],
+            'post' => [
+                '/users/[0-9]+/update' => 'UserController@update',
+            ],
         ];
     }
 }

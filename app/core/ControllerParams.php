@@ -13,6 +13,7 @@ class ControllerParams
         $uri = Uri::get();
         $explodeUri = explode('/', $uri);
         $explodeRouter = explode('/', $router);
+
         $params = [];
         foreach ($explodeRouter as $index => $routerSegment) {
             if ($routerSegment !== $explodeUri[$index]) {
