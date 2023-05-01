@@ -1,5 +1,9 @@
 <?php
 
+use app\core\Router;
+
 require '../vendor/autoload.php';
 
-phpinfo();
+session_start();
+
+Router::run();
