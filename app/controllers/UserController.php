@@ -6,17 +6,17 @@ use app\core\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(): void
     {
         dd('user controller index');
     }
 
-    public function show($params)
+    public function show($params): void
     {
         dd('user controller show', $params);
     }
 
-    public function edit(array $params)
+    public function edit(array $params): void
     {
         $this->view('user', [
             'title' => 'Editar usuário',
@@ -26,7 +26,7 @@ class UserController extends Controller
         dd($query);
     }
 
-    public function update($params)
+    public function update($params): void
     {
         // $request = Request::only('firstName');
         // $request = Request::only(['password', 'firstName', 'email']);

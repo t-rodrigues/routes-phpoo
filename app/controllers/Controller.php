@@ -6,7 +6,7 @@ use League\Plates\Engine;
 
 abstract class Controller
 {
-    protected static function view(string $view, array $data = [])
+    protected static function view(string $view, array $data = []): void
     {
         $viewPath = "../app/views/{$view}.php";
 
