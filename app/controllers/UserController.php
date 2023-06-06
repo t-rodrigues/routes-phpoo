@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-use app\core\Request;
+use app\database\models\User;
+use app\support\Validate;
 
 class UserController extends Controller
 {
@@ -22,16 +23,23 @@ class UserController extends Controller
             'title' => 'Editar usuário',
             'id' => $params[0],
         ]);
-        $query = Request::query('page');
-        dd($query);
+        // $query = Request::query('page');
     }
 
     public function update($params): void
     {
-        // $request = Request::only('firstName');
-        // $request = Request::only(['password', 'firstName', 'email']);
-        // $request = Request::excepts('password');
-        $request = Request::excepts(['password', 'lastName']);
-        dd($request);
+        // Csrf::validateToken();
+        $validate = new Validate;
+        $validated = $validate->validate([
+            'firstName' => 'required',
+            'lastName' => 'required',
+            'email' => 'required|email|unique:' . User::class,
+            'password' => 'required|minLen:6'
+        ]);
+        if (!$validated) {
+            redirect("/users/1/edit");
+            return;
+        }
+        dd($validated);
     }
 }

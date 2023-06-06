@@ -12,9 +12,11 @@ class Routes
                 '/users' => 'UserController@index',
                 '/users/[0-9]+' => 'UserController@show',
                 '/users/[0-9]+/edit' => 'UserController@edit',
+                '/contact' => 'ContactController@index'
             ],
             'post' => [
                 '/users/[0-9]+/update' => 'UserController@update',
+                '/contact' => 'ContactController@store'
             ],
         ];
     }

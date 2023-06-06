@@ -2,6 +2,8 @@
 
 namespace app\core;
 
+use Exception;
+
 class Request
 {
     public static function all()
@@ -9,10 +11,10 @@ class Request
         return $_POST;
     }
 
-    public static function input(string $input): array
+    public static function input(string $input): string
     {
         if (!isset($_POST[$input])) {
-            throw new \Exception("input not found: {$input}");
+            throw new Exception("input not found: {$input}");
         }
         return $_POST[$input];
     }
@@ -63,7 +65,7 @@ class Request
     public static function query($name)
     {
         if (!isset($_GET[$name])) {
-            throw new \Exception("Não existe a query string: {$name}");
+            throw new Exception("Não existe a query string: {$name}");
         }
 
         return $_GET[$name];
@@ -77,7 +79,7 @@ class Request
     public static function toArray(string $json)
     {
         if (!isJson($json)) {
-            throw new \Exception("invalid json");
+            throw new Exception("invalid json");
         }
 
         return json_decode($json);
